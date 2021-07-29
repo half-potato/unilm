@@ -71,8 +71,6 @@ def main():
     if args.options is not None:
         cfg.merge_from_dict(args.options)
     # set cudnn_benchmark
-    if cfg.get('cudnn_benchmark', False):
-        torch.backends.cudnn.benchmark = True
 
     # work_dir is determined in this priority: CLI > segment in file > filename
     if args.work_dir is not None:
@@ -135,6 +133,8 @@ def main():
         cfg.model,
         train_cfg=cfg.get('train_cfg'),
         test_cfg=cfg.get('test_cfg'))
+    if args.launcher != 'none':
+        model = torch.nn.SyncBatchNorm.convert_sync_batchnorm(model)
 
     logger.info(model)
 
