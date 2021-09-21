@@ -43,13 +43,13 @@ data = dict(
     val=dict(
         type=dataset_type,
         data_root=data_root,
-        img_dir='images/validation',
-        ann_dir='annotations/validation',
+        img_dir='images/training',
+        ann_dir='annotations/training',
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
         data_root=data_root,
         img_dir='images/validation',
-        ann_dir='annotations/validation',
+        ann_dir='annotations/training',
         pipeline=test_pipeline))
 

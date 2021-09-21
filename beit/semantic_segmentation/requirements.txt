@@ -1,0 +1,4 @@
+timm==0.3.2
+einops
+deepspeed==0.4.0
+scipy

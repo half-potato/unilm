@@ -5,8 +5,8 @@ import mmcv
 import numpy as np
 from PIL import Image
 
-from .builder import DATASETS
-from .custom import CustomDataset
+from mmseg.datasets import DATASETS
+from mmseg.datasets.custom import CustomDataset
 
 
 @DATASETS.register_module()
@@ -18,11 +18,10 @@ class AlertWildfire(CustomDataset):
     The ``img_suffix`` is fixed to '.jpg' and ``seg_map_suffix`` is fixed to
     '.png'.
     """
-    CLASSES = ("Smoke", "Hazy smoke", "Fire", "Flame retardant", "Fog")
+    CLASSES = ("Background", "Smoke")
 
 
-    PALETTE = [[120, 120, 120], [180, 120, 120], [6, 230, 230], [80, 50, 50],
-               [4, 200, 3]]
+    PALETTE = [[0, 0, 0], [0, 120, 0]]
 
     def __init__(self, **kwargs):
         super(AlertWildfire, self).__init__(

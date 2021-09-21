@@ -16,6 +16,7 @@ from mmcv_custom import train_segmentor
 from mmseg.datasets import build_dataset
 from mmseg.models import build_segmentor
 from mmseg.utils import collect_env, get_root_logger
+from mmcv_custom import alertwildfire
 
 from backbone import beit
 
